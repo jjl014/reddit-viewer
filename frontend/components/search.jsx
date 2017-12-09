@@ -51,7 +51,7 @@ export default class Search extends React.Component {
     return (
       <div className="search-bar-wrapper v-box flex-center">
         <h4>{this.state.error}</h4>
-        <form>
+        <form className="h-box flex-center">
           <input
             onChange={this.handleChange()}
             type="text"
