@@ -35,6 +35,7 @@ export default class Search extends React.Component {
       e.preventDefault();
       if (this.state.error !== "") this.setState({error: ""});
       const {dataList, search} = this.state;
+      if (/\s+/.test(search) || search === "") return;
       const lowerCaseDataList = dataList.map(el => el.toLowerCase());
       if (lowerCaseDataList.includes(search.toLowerCase())) {
         this.props.addSubreddit(search);
@@ -49,6 +50,7 @@ export default class Search extends React.Component {
   render() {
     return (
       <div className="search-bar-wrapper v-box flex-center">
+        <h4>{this.state.error}</h4>
         <form>
           <input
             onChange={this.handleChange()}
@@ -67,7 +69,6 @@ export default class Search extends React.Component {
             Add
           </button>
         </form>
-        <h4>{this.state.error}</h4>
       </div>
     );
   }
