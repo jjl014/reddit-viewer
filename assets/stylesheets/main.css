@@ -1,7 +1,7 @@
 body {
   background-color: #011118;
   font: normal x-small verdana,arial,helvetica,sans-serif;
-  color: white;
+  color: #f3f3f3;
   width: 95%;
   margin: 0 auto;
   padding: 50px 0;
@@ -86,8 +86,12 @@ input {
 }
 
 .subreddit-tag {
-  border: solid 1px white;
+  border: solid 2px #26bcc7;
+  background: #f3f3f3;
+  color: #011118;
+  font-weight: bold;
   margin-right: 10px;
+  border-radius: 25px;
   padding: 5px 10px;
   display: inline;
   float: left;
@@ -97,7 +101,7 @@ input {
 .subreddit-tag button {
   margin-left: 5px;
   border: none;
-  background: white;
+  background: inherit;
   border-radius: 5px;
   color: #d85858;
 }
