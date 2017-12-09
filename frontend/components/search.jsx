@@ -5,12 +5,14 @@ export default class Search extends React.Component {
     super(props);
     this.state = {
       search: "",
-      dataList: []
+      dataList: [],
+      error: ""
     };
   }
 
   handleChange() {
     return (e) => {
+      if (this.state.error !== "") this.setState({error: ""});
       this.setState({search: e.target.value});
       let queryList;
       fetch(
@@ -31,15 +33,22 @@ export default class Search extends React.Component {
   handleSubmit() {
     return (e) => {
       e.preventDefault();
-      this.setState({search: "", dataList: []});
-      this.props.addSubreddit(this.state.search);
-      this.props.fetchPostsBySubreddit(this.state.search);
+      if (this.state.error !== "") this.setState({error: ""});
+      const {dataList, search} = this.state;
+      const lowerCaseDataList = dataList.map(el => el.toLowerCase());
+      if (lowerCaseDataList.includes(search.toLowerCase())) {
+        this.props.addSubreddit(search);
+        this.props.fetchPostsBySubreddit(search);
+        this.setState({search: "", dataList: []});
+      } else {
+        this.setState({error: `/r/${this.state.search} doesn't exist`});
+      }
     };
   }
 
   render() {
     return (
-      <div className="search-bar-wrapper h-box flex-center">
+      <div className="search-bar-wrapper v-box flex-center">
         <form>
           <input
             onChange={this.handleChange()}
@@ -58,6 +67,7 @@ export default class Search extends React.Component {
             Add
           </button>
         </form>
+        <h4>{this.state.error}</h4>
       </div>
     );
   }

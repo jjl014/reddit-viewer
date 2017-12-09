@@ -21,6 +21,10 @@ h3 {
   font-size: 16px;
 }
 
+h4 {
+  font-size: 14px;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -85,7 +89,9 @@ input {
   border: solid 1px white;
   margin-right: 10px;
   padding: 5px 10px;
+  display: inline;
   float: left;
+  margin-bottom: 10px;
 }
 
 .subreddit-tag button {
@@ -151,4 +157,13 @@ input {
 
 .subreddit-list-wrapper {
   margin-bottom: 10px;
+}
+
+.subreddit-list {
+  flex-wrap: wrap;
+}
+
+.search-bar-wrapper h4 {
+  margin-top: 5px;
+  color: #d85858;
 }

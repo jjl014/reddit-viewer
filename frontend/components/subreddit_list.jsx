@@ -7,9 +7,7 @@ export default class SubredditList extends React.Component {
   }
 
   deleteSubreddit(subreddit) {
-    console.log("hi");
     return () => {
-      console.log(`deleting ${subreddit}`);
       this.props.removeSubreddit(subreddit);
     };
   }

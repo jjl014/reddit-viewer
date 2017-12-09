@@ -5,7 +5,10 @@ import {
 
 const _defaultState = {
   "news": true,
-  "gifs": true
+  "gifs": true,
+  "pizza": true,
+  "dogs": true,
+  "cats": true
 };
 
 const selectedSubredditsReducer = (state = _defaultState, action) => {
