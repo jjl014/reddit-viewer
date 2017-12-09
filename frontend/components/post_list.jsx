@@ -8,7 +8,7 @@ export default class PostList extends React.Component {
 
   componentDidMount() {
     const {subreddits, getPostsBySubreddit} = this.props;
-    subreddits.forEach(subreddit => {
+    Object.keys(subreddits).forEach(subreddit => {
       getPostsBySubreddit(subreddit);
     });
   }

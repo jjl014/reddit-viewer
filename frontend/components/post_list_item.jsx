@@ -12,8 +12,12 @@ const PostListItem = ({post}) => {
           </div>
         }
       <div className="title-info-wrapper v-box">
-        <div><a href={post.url}><h2>{post.title}</h2></a></div>
-        <p>Posted by <span>{post.author}</span></p>
+        <div className="title-wrapper">
+          <a target="_blank" href={post.url}>
+            <h2>{post.title}</h2>
+          </a>
+        </div>
+        <p>submitted to <span>{post.subreddit_name_prefixed}</span> by <span>{post.author}</span></p>
       </div>
     </li>
   );
