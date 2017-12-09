@@ -7,7 +7,6 @@ const postsBySubredditReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_POSTS:
-      debugger;
       return Object.assign({}, state, {
         [action.subreddit]: postsReducer(state[action.subreddit], action)
       });

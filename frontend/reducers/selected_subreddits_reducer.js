@@ -1,4 +1,4 @@
-const _defaultState = ["news"];
+const _defaultState = ["news", "gifs"];
 
 const selectedSubredditsReducer = (state = _defaultState, action) => {
   Object.freeze(state);
